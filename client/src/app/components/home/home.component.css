@@ -1,0 +1,46 @@
+.home-content {
+    margin: 50px auto;
+}
+
+.news-content .new {
+    display: flex;
+    padding: 15px 0px;
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    font-size: 13pt;
+    color: #333;
+}
+
+.news-content .new:hover {
+    background-color: #fafafa;
+}
+
+.news-content .new.disabled {
+    opacity: 0.5;
+}
+
+.news-content .new.disabled:hover {
+    background-color: #fff;
+}
+
+.news-content .new .title {
+    padding: 3px 10px;
+}
+
+.news-content .new .title .author {
+    color: #999;
+    font-weight: 300;
+}
+
+.news-content .new .date-content {
+    display: flex;
+    align-items: center;
+}
+
+.news-content .new .date-content .icon-content {
+    display: none;
+}
+
+.news-content .new:hover .date-content .icon-content {
+    display: block;
+}
