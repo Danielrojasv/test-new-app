@@ -4,7 +4,6 @@
     "scripts": {
         "start": "npm run build:live",
         "build": "gulp clean build",
-        "lint": "gulp lint",
         "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- index.ts",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -12,6 +11,7 @@
     "dependencies": {
         "@types/cron": "^1.6.1",
         "@types/express": "^4.16.1",
+        "@types/gulp": "^4.0.5",
         "@types/mongoose": "^5.3.20",
         "axios": "^0.18.0",
         "core-js": "^2.5.4",

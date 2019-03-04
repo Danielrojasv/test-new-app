@@ -1,3 +1,14 @@
 <div class="button-content">
-    <button mat-button (click)="synchronizeApp();">Synchronize me!</button>
+    <button mat-raised-button color="primary" (click)="synchronizeApp();">Synchronize me!</button>
+
+    <div *ngIf="response">
+        <div *ngIf="isOk else error" class="alert-content">
+            <p>{{ message }}</p>
+        </div>
+        <ng-template #error>
+            <div class="alert-content error">
+                <p>{{ message }}</p>
+            </div>
+        </ng-template>
+    </div>
 </div>
