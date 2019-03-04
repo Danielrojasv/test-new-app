@@ -2,7 +2,7 @@
 
 Sample project using TypeScript.
 
-## installation
+## Installation
 
 Clone the project and then:
 
@@ -10,7 +10,7 @@ Clone the project and then:
 npm run app-install 
 </code></pre>
   
-## use
+## Use
 
 The global.config.json file contains routes used by client and server, the MongoDB url as required.
 
