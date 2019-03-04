@@ -6,8 +6,10 @@ Sample project using TypeScript.
 
 Clone the project and then:
 
-  cd test-new-app
-  npm install
+<pre><code>  
+cd test-new-app
+npm install 
+</code></pre>
   
 ## use
 
@@ -15,7 +17,9 @@ The global.config.json file contains routes used by client and server, the Mongo
 
 To run the servers:
 
-  npm start
+<pre><code>  
+npm start
+</code></pre>
   
 And use default angular route http://localhost:4200.
   
