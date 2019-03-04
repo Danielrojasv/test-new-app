@@ -19,6 +19,6 @@ To run the servers:
 <pre><code>npm start
 </code></pre>
   
-And use default angular route http://localhost:4200.
+To syncronize the app with the external service go to http://localhost:4200/synchronize and click in "Syncronize me!" and use default angular route http://localhost:4200.
   
 Any questions you can contact me.
