@@ -9,6 +9,7 @@ gulp.task('clean', () =>
     })
     .pipe(clean())
 );
+
 gulp.task('build', () =>
     tsProject.src()
     .pipe(tsProject())

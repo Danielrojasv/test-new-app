@@ -4,7 +4,7 @@
     "scripts": {
         "start": "npm run build:live",
         "build": "gulp clean build",
-        "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- index.ts",
+        "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- src/index.ts",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "private": true,
@@ -19,7 +19,6 @@
         "express": "^4.16.4",
         "gulp": "^4.0.0",
         "gulp-clean": "^0.4.0",
-        "gulp-tslint": "^8.1.4",
         "gulp-typescript": "^5.0.0",
         "mongoose": "^5.4.16",
         "rxjs": "~6.3.3",

@@ -6,7 +6,7 @@ import { New } from "./news.controller";
 export class Server{
     public app = express.application;
 
-    constructor(private port: number){
+    constructor(private port: number, private db:string){
         this.app = express();
     }
 
@@ -14,7 +14,7 @@ export class Server{
         //Deprecaciones de mongoose
         mongoose.set('useCreateIndex', true);
         mongoose.set('useFindAndModify', false);
-        mongoose.connect('mongodb://localhost:27017/news',{ useNewUrlParser: true }, (err) => {
+        mongoose.connect(this.db,{ useNewUrlParser: true }, (err) => {
             if(err) throw err;
             console.log("Connect db successfull");
         });
@@ -25,7 +25,7 @@ export class Server{
         this.app.listen( this.port, callback);
     }
 
-    static init(port:number): Server{
-        return new Server(port);
+    static init(port:number, db:string): Server{
+        return new Server(port,db);
     }
 }

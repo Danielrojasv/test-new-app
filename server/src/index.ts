@@ -1,10 +1,12 @@
 import { Server } from "./controllers/server.controller";
 import index from "./routes/index.route";
 import news from "./routes/news.route";
+import configGlobal = require("../../global.config.json");
 
-const port = 4201;
+const port = configGlobal.server_port;
+const db = `${configGlobal.mongo_db_host}:${configGlobal.mongo_db_port}/${configGlobal.mongo_db_name}`;
 
-const server = Server.init( port );
+const server = Server.init( port, db );
 
 server.app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin','*');
