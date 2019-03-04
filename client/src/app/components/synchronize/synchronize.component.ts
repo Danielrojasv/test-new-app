@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Response } from 'selenium-webdriver/http';
+import configGlobal = require("../../../../../global.config.json");
 
 @Component({
   selector: 'app-synchronize',
@@ -20,11 +20,16 @@ export class SynchronizeComponent implements OnInit {
   }
 
   synchronizeApp(){
-    this.http.get('http://localhost:4201/api/news/synchronize').subscribe( (resp:any) => {
+    this.http.get(`${ configGlobal.server_host }:${ configGlobal.server_port }/api/news/synchronize`).subscribe( (resp:any) => {
       this.response = resp;
       console.log(this.response);
       this.message = resp.message;
       this.isOk = resp.ok;
+    },
+    (err:any) => {
+      console.log('error', err);
+    }, () => {
+      console.log('complete');
     });
   }
 

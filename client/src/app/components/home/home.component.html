@@ -1,30 +1,35 @@
 <div class="home-content">
     <div class="wrap">
         <div class="news-content">
-            <div class="new-content" *ngFor="let new of news ">
-                <div *ngIf="!new.is_delete">
-                    <a [href]="new.url" *ngIf="new.url != null else notUrl" class="new clearfix" target="_BLANK">
-                        <h3 class="title left col-80">{{ new.title }} <span class="author">- {{ new.author }} -</span></h3>
-                        <div class="right col-20 clearfix date-content">
-                            <span class="date left col-70">{{ new.date | customdate }}</span>
-                            <div (click)="$event.stopPropagation()" class="col-30 text-center left icon-content transition-slow">
-                                <mat-icon (click)="openDialog($event, new.new_id)">delete</mat-icon>
-                            </div>
-                        </div>
-                    </a>
-                    <ng-template #notUrl>
-                        <span class="new disabled clearfix">
+            <div *ngIf="news else notFound">
+                <div class="new-content" *ngFor="let new of news ">
+                    <div *ngIf="!new.is_delete">
+                        <a [href]="new.url" *ngIf="new.url != null else notUrl" class="new clearfix" target="_BLANK">
                             <h3 class="title left col-80">{{ new.title }} <span class="author">- {{ new.author }} -</span></h3>
-                        <div class="right col-20 clearfix date-content">
-                            <span class="date left col-70">{{ new.date | customdate }}</span>
-                            <div (click)="$event.stopPropagation()" class="col-30 text-center left icon-content transition-slow">
-                                <mat-icon (click)="openDialog($event, new.new_id)">delete</mat-icon>
+                            <div class="right col-20 clearfix date-content">
+                                <span class="date left col-70">{{ new.date | customdate }}</span>
+                                <div (click)="$event.stopPropagation()" class="col-30 text-center left icon-content transition-slow">
+                                    <mat-icon (click)="openDialog($event, new.new_id)">delete</mat-icon>
+                                </div>
                             </div>
-                        </div>
-                        </span>
-                    </ng-template>
+                        </a>
+                        <ng-template #notUrl>
+                            <span class="new disabled clearfix">
+                                <h3 class="title left col-80">{{ new.title }} <span class="author">- {{ new.author }} -</span></h3>
+                            <div class="right col-20 clearfix date-content">
+                                <span class="date left col-70">{{ new.date | customdate }}</span>
+                                <div (click)="$event.stopPropagation()" class="col-30 text-center left icon-content transition-slow">
+                                    <mat-icon (click)="openDialog($event, new.new_id)">delete</mat-icon>
+                                </div>
+                            </div>
+                            </span>
+                        </ng-template>
+                    </div>
                 </div>
             </div>
+            <ng-template #notFound>
+                <p>No result found</p>
+            </ng-template>
         </div>
     </div>
 </div>

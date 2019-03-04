@@ -39,6 +39,7 @@
 
 .news-content .new .date-content .icon-content {
     display: none;
+    cursor: pointer;
 }
 
 .news-content .new:hover .date-content .icon-content {

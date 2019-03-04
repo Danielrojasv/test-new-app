@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef} from '@angular/material';
 import { HttpClient } from "@angular/common/http";
+import configGlobal = require("../../../../../global.config.json");
 
 
 @Component({
@@ -10,19 +11,23 @@ import { HttpClient } from "@angular/common/http";
 })
 export class HomeComponent implements OnInit {
 
-  news:any[] = [];
+  news:any[];
   messages:any[] = [];
 
   constructor( public dialog: MatDialog, private http: HttpClient ) { 
 
-    this.http.get('http://localhost:4201/api/news/').subscribe((resp:any)=> {
+    this.http.get(`${ configGlobal.server_host }:${ configGlobal.server_port }/api/news/`).subscribe((resp:any)=> {
       if( resp.ok == false ){
         this.messages = resp.err;
       } else {
         this.news = resp.news.sort( (val1:any, val2:any) => <any>new Date(val2.date) - <any>new Date(val1.date));
         console.log(this.messages);
       }
-      
+    },
+    (err:any) => {
+      console.log('error', err);
+    }, () => {
+      console.log('complete');
     });
 
   }
@@ -36,7 +41,7 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        this.http.get(`http://localhost:4201/api/news/delete-view/${ id }`).subscribe((resp:any)=> {
+        this.http.get(`${ configGlobal.server_host }:${ configGlobal.server_port }/api/news/delete-view/${ id }`).subscribe((resp:any)=> {
           if( resp.ok == false ){
             this.messages = resp.err;
           } else {
@@ -48,7 +53,11 @@ export class HomeComponent implements OnInit {
             }
             console.log(this.messages);
           }
-          
+        },
+        (err:any) => {
+          console.log('error', err);
+        }, () => {
+          console.log('complete');
         });
       }
     });

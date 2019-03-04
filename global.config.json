@@ -1,0 +1,7 @@
+{
+    "server_host": "http://localhost",
+    "server_port": 4201,
+    "mongo_db_host": "mongodb://localhost",
+    "mongo_db_port": 27017,
+    "mongo_db_name": "news"
+}
