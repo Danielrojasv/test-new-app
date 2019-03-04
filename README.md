@@ -7,7 +7,7 @@ Sample project using TypeScript.
 Clone the project and then:
 
 <pre><code>cd test-new-app
-npm install 
+npm run app-install 
 </code></pre>
   
 ## use
